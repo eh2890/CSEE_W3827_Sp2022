@@ -12,7 +12,9 @@
 \end{frame}
 
 \begin{frame}{Overview}
+\begin{multicols}{2}
 \tableofcontents
+\end{multicols}
 \end{frame}
 
 \section{Introductions}
@@ -82,6 +84,18 @@
 \end{frame}
 
 \section{OH Logistics}
+\subsection{Structure}
+\begin{frame}{OH Logistics: Structure}
+    \begin{itemize}
+        \item Attendance will be taken via Zoom (either chat or participant history)
+        \item After covering announcements (upcoming homeworks, exams, etc.), it is whatever you would like to do
+        \begin{itemize}
+            \item May have additional problems to highlight edge cases/tricks, or can end early
+        \end{itemize}
+        \item Make use of this time and prepare your questions in advance -- can be about previous/current homeworks, current course content, etc.
+    \end{itemize}
+\end{frame}
+
 \subsection{Switching OH Sections}
 \begin{frame}{Logistics: Switching OH Sections}
     \begin{itemize}
@@ -154,12 +168,62 @@
     \end{itemize}
 \end{frame}
 
-\subsection{Structure}
-\begin{frame}{OH Logistics: Structure}
-    \begin{itemize}
-        \item After covering announcements (upcoming homeworks, exams, etc.), it is whatever you would like to do
-        \item Make use of this time and prepare your questions in advance -- can be about previous/current homeworks, current course content, etc.
-    \end{itemize}
+\section{Homework 1}
+\subsection{Problem 1}
+\begin{frame}{HW1: Problem 1}
+    Assume an architecture where all numbers are to be represented using 8 bits. What are the (base 10) values of the 8-bit binary numbers when interpreted using (i) unsigned, (ii) signed magnitude, (iii) 1’s complement, (iv) 2’s complement form:
+    \begin{enumerate}[(a)]
+        \item $00110011$
+        \item $10000000$
+        \item $11111111$
+        \item $10011011$
+        \item $10001010$
+    \end{enumerate}
+\end{frame}
+
+\subsection{Problem 2}
+\begin{frame}{HW1: Problem 2}
+    Convert the following (base 10) numbers to their binary representation using 8-bit (i) signed magnitude, (ii) 1’s complement, (iii) 2’s complement forms:
+    \begin{enumerate}[(a)]
+        \item $-1$
+        \item $-15$
+        \item $-67$
+        \item $-127$
+    \end{enumerate}
+\end{frame}
+
+\subsection{Problem 3}
+\begin{frame}{HW1: Problem 3}
+    For each pair of $x$ and $y$ below, convert $x$ and $y$ to their 8-bit 2’s-complement forms, subtract $y$ from $x$ (so you need to negate $y$ and then add). Indicate whether an overflow occured (and show clearly how you know), and convert the solution back to base 10 (even when an overflow occured and the solution is wrong, i.e., your answer should fit in the 8-bit representation of that form.).
+    \begin{enumerate}[(a)]
+        \item $x = 10, y = -13$
+        \item $x = 117, y = 35$
+        \item $x = 117, y = -35$
+        \item $x = -117, y = 35$
+        \item $x = -117, y = 11$
+    \end{enumerate}
+\end{frame}
+
+\subsection{Problem 4}
+\begin{frame}{HW1: Problem 4}
+    Given the bit pattern $1010\ 1101\ 0001\ 0000\ 0000\ 0000\ 0000\ 0010$, what does it represent, assuming that it is
+    \begin{enumerate}[(a)]
+        \item a two's complement integer?
+        \item an unsigned integer?
+        \item a single precision (32-bit) floating-point number?
+    \end{enumerate}
+\end{frame}
+
+\subsection{Problem 5}
+\begin{frame}{HW1: Problem 5}
+    Represent the following numbers, given here in binary form, as floating point numbers using IEEE 754 floating- point standard representation:
+    \begin{enumerate}[(a)]
+        \item $11010.1110$
+        \item $-11011.10$
+        \item $0.000101$
+        \item $-1.010101$
+        \item $10000000010$
+    \end{enumerate}
 \end{frame}
 
 \end{document}
