@@ -9,7 +9,6 @@
 \usepackage[english]{babel}
 \usepackage{cancel}
 \usepackage[justification=centering]{caption}
-\usepackage{chemfig}
 \usepackage{circuitikz}
 \usepackage{color}
 \usepackage[autostyle]{csquotes}

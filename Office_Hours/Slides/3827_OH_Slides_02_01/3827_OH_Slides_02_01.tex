@@ -88,7 +88,7 @@
 \begin{frame}{\secname: \subsecname}
     \begin{itemize}
         \item Attendance will be taken via Zoom (either chat or participant history)
-        \item After covering announcements (upcoming homeworks, exams, etc.), it is whatever you would like to do
+        \item After covering announcements (upcoming homeworks, exams, etc.) and notable concepts, it is whatever you would like to do
         \begin{itemize}
             \item May have additional problems to highlight edge cases/tricks, or can end early
         \end{itemize}
@@ -167,6 +167,180 @@
             \item Additional OH will be posted here and also announced
         \end{itemize}
     \end{itemize}
+\end{frame}
+
+\section{Notable Concepts}
+\subsection{Binary Syntax}
+\begin{frame}{\secname: \subsecname}
+    When writing in binary, syntax can help everyone trying to read it. We usually deal with binary numbers that have a number of bits divisible by 4 (e.g. 8-bit, 32-bit, 64-bit). Compare the (identical in value) two 32-bit numbers:
+    \begin{center}
+        \lstinline{00000000110111111111001101011101}\\
+        \lstinline{0000 0000 1101 1111 1111 0011 0101 1101}
+    \end{center}
+    The first is hard to read. The second is easier to read. Group bits by four for readability -- it's easier to see when you've missed a bit, and it's easier for me to grade.
+\end{frame}
+
+\subsection{Binary Representation}
+\begin{frame}{\secname: \subsecname}
+    What is the value of the 8-bit number \lstinline{1001 0110}? Is it $150$ (unsigned)? Is it $-22$ (signed magnitude)? Is it $-105$ (1's complement)? Is it $-106$ (2's complement)? Is it \^{u} (ASCII)?\\
+    Binary numbers are just an ordering of bits; their meaning comes from how they are interpreted.\\
+    The LSB is bit $0$, the MSB is bit $k-1$ for a $k$-bit binary number. For review:
+    \begin{itemize}
+        \item Unsigned magnitude: bit $i$ is $2^i$, nothing special about MSB
+        \item Signed magnitude: MSB does not have value, simply indicates the sign of the number
+        \item 1's complement: MSB indicates sign -- if MSB is $1$, then flip all the bits and negate the result
+        \item 2's complement: MSB indicates sign -- if MSB is $1$, then flip all the bits and add $1$
+    \end{itemize}
+    Note: signed magnitude and 1's complement result in two ways to represent $0$ (think $+0$ and $-0$).
+\end{frame}
+
+\subsection{2's Complement Subtraction}
+\begin{frame}{\secname: \subsecname}
+    Subtracting is the same as adding a negative number:
+    \begin{gather*}
+        X - Y = X + (-Y)
+    \end{gather*}
+\end{frame}
+
+\subsection{Detecting Overflow}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Unsigned
+        \begin{itemize}
+            \item Addition: overflow occurs if final carry is $1$ 
+            \item Subtraction: overflow in $X - Y$ occurs if $X < Y$
+        \end{itemize}
+        \item 2's complement
+        \begin{itemize}
+            \item Overflow occurs if the two final carries (most significant) do not match
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Boolean Complement Syntax}
+\begin{frame}{\secname: \subsecname}
+    Consider the expressions below:
+    \begin{align*}
+        \overbar{XY} &= \overbar{X} + \overbar{Y}\\
+        \overbar{X}\overbar{Y} &= \overbar{X + Y}
+    \end{align*}
+    The expressions $\overbar{XY}$ and $\overbar{X}\overbar{Y}$ are different -- the space between the complement bars is crucial.\\
+\end{frame}
+
+\subsection{XOR}
+\begin{frame}{\secname: \subsecname}
+    For two inputs, the XOR operator ensures that \textbf{exactly one} of the inputs is $0$ (and \textbf{exactly one} of the inputs is $1$ as well). Some definitions:
+    \begin{multicols}{2}
+    \begin{figure}[H]
+        \centering
+        \begin{table}[H]
+        \begin{tabular}{|c|c|c|}
+        \hline
+        $X$ & $Y$ & $X\oplus Y$ \\ \hline\hline
+        $0$ & $0$ & $0$ \\ \hline
+        $0$ & $1$ & $1$ \\ \hline
+        $1$ & $0$ & $1$ \\ \hline
+        $1$ & $1$ & $0$ \\ \hline
+        \end{tabular}
+        \end{table}
+    \end{figure}
+    $$X\oplus Y = X\overbar{Y} + \overbar{X}Y$$
+    \end{multicols}
+    Important properties:
+    \begin{itemize}
+        \item Commutativity: $X\oplus Y = Y\oplus X$
+        \item Associativity: $X\oplus (Y\oplus Z) = (X\oplus Y) \oplus Z$
+        \item Identity: $X\oplus 0 = X$
+        \item Inverse: $X\oplus X = 0$
+        \item Negation: $X\oplus Y = \overbar{X} \oplus \overbar{Y} \neq \overbar{X\oplus Y} = X\overbar{\oplus}Y$
+    \end{itemize}
+    It follows that for $n$ inputs, $X_1\oplus \cdots \oplus X_n = 1$ for an odd number of $X_i$.
+\end{frame}
+
+\subsection{XNOR}
+\begin{frame}{\secname: \subsecname}
+    If 2-input XOR checks for inequality, XNOR checks for equality:
+    \begin{figure}[H]
+        \centering
+        \begin{table}[H]
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        $X$ & $Y$ & $X\oplus Y$ & $X\overbar{\oplus} Y$ \\ \hline\hline
+        $0$ & $0$ & $0$ & $1$\\ \hline
+        $0$ & $1$ & $1$ & $0$\\ \hline
+        $1$ & $0$ & $1$ & $0$\\ \hline
+        $1$ & $1$ & $0$ & $1$\\ \hline
+        \end{tabular}
+        \end{table}
+    \end{figure}
+    If we perform bit-wise XNOR on two $k$-bit numbers $X$ and $Y$ and then AND all the results, we can check if $X == Y$:
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[circuit logic US, label distance=2mm]\centering
+            \node (xmsb) at (0, 2) {$X_{k-1}$};
+            \node (ymsb) at (0, 1.5) {$Y_{k-1}$};
+            \node () at (0, 1) {$\vdots$};
+            \node (x0) at (0, 0.25) {$X_0$};
+            \node (y0) at (0, -0.25) {$Y_0$};
+            \node[xnor port, draw, scale=0.89] at (2, 1.75) (xnor1){};
+            \node (dots) at (2, 1) {$\vdots$};
+            \node[xnor port, draw, scale=0.89] at (2, 0) (xnor0){};
+            \draw (xmsb) -- (xnor1.in 1);
+            \draw (ymsb) -- (xnor1.in 2);
+            \draw (x0) -- (xnor0.in 1);
+            \draw (y0) -- (xnor0.in 2);
+            \node[and gate, draw, logic gate inputs=nnn] at (3, 0.875) (and){};
+            \draw (xnor1.out) -| (2.5, 1.75) |- (and.input 1);
+            \draw (2.3, 0.875) -- (and.input 2);
+            \draw (xnor0.out) -| (2.5, 0) |- (and.input 3);
+            \node (f) at (4, 0.875) {$F$};
+            \draw (and.output) -- (f);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\subsection{Drawing Circuits}
+\begin{frame}{\secname: \subsecname}
+    Be sure that your circuits are not ambiguous. Use dots to indicate which wires are connected, like so:\footnote{From Lecture 02, Slide 35}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 6cm]{img/circuit.png}
+    \end{figure}
+    You may consider something like:
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[circuit logic US, label distance=2mm]\centering
+        \node (x) at (0, 2) {$X$};
+        \node (y) at (0, 1.5) {$Y$};
+        \node (z) at (0, 1) {$Z$};
+        \draw (x) -- (7, 2);
+        \draw (y) -- (7, 1.5);
+        \draw (z) -- (7, 1);
+        \node[or gate, draw, rotate = -90] at (2, 0.25) (or){};
+        \node[xor gate, draw, rotate = -90] at (4, 0.25) (xor){};
+        \node[and gate, draw, logic gate inputs=nnn, rotate = -90] at (6, 0.25) (and){};
+        \draw (x) -| (or.input 2);
+        \draw (y) -| (or.input 1);
+        \draw (x) -| (xor.input 2);
+        \draw (z) -| (xor.input 1);
+        \draw (x) -| (and.input 3);
+        \draw (y) -| (and.input 2);
+        \draw (z) -| (and.input 1);
+        \draw[black,fill=black] (1.9, 2) circle (0.05) node {};
+        \draw[black,fill=black] (2.1, 1.5) circle (0.05) node {};
+        \draw[black,fill=black] (3.9, 2) circle (0.05) node[anchor=south east] {};
+        \draw[black,fill=black] (4.1, 1) circle (0.05) node[anchor=south east] {};
+        \draw[black,fill=black] (5.85, 2) circle (0.05) node[anchor=south east] {};
+        \draw[black,fill=black] (6, 1.5) circle (0.05) node[anchor=south east] {};
+        \draw[black,fill=black] (6.15, 1) circle (0.05) node[anchor=south east] {};
+        \node (a) at (2, -0.75) {$A$};
+        \node (b) at (4, -0.75) {$B$};
+        \node (c) at (6, -0.75) {$C$};
+        \draw (or.output) -- (a);
+        \draw (xor.output) -- (b);
+        \draw (and.output) -- (c);
+    \end{tikzpicture}
+    \end{figure}
 \end{frame}
 
 \section{Homework 1}
