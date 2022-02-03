@@ -19,6 +19,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{karnaugh-map}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage[metapost]{mfpic}
