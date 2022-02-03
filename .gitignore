@@ -278,5 +278,8 @@ TSWLatexianTemp*
 # .DS_Store
 *.DS_Store
 
-# ./Solutions
+# Solutions
 Solutions/
+
+# Exam_Questions
+Exam_Questions/
