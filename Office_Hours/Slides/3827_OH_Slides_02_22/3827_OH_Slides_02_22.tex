@@ -266,4 +266,59 @@
     \end{itemize}
 \end{frame}
 
+\subsection{State Machines}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item We will worry about Mealy form -- output is based on transition and state, rather than just state
+        \item Let the inputs be $I = I_{n-1}I_{n-2}\cdots I_1I_0$ and the outputs be $O = O_{m-1}O_{m-2}\cdots O_1O_0$
+        \item Then, for every state in the FSM, there must be $2^{|I|}$ transitions accounted for, each corresponding to $I_{n-1}I_{n-2}\cdots I_1I_0 / O_{m-1}O_{m-2}\cdots O_1O_0$ (but replace with $0$s and $1$s, so something like $01\cdots 00 / 11\cdots 10$)
+        \begin{itemize}
+            \item Why $2^{|I|}$? Because every combination of inputs must appear exactly once for each state since we will deal with deterministic FSMs
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\secname: \subsecname\ (cont.)}
+    \begin{itemize}
+        \item Example: $I = I_1I_0$, $O = O_0$
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \node[state] (a) at (0, 0) {$A$};
+                \node[state] (b) at (4, 4) {$B$};
+                \node[state] (c) at (8, 0) {$C$};
+                \draw[-{Stealth[scale=1.5]}] (a) edge[bend left = 15] node[in place] {$00/1$} (b);
+                \draw[-{Stealth[scale=1.5]}] (a) edge[bend left = 15] node[in place] {$1X/0$} (c);
+                \draw[-{Stealth[scale=1.5]}] (a) edge[loop below] node[in place] {$01/0$} (a);
+                \draw[-{Stealth[scale=1.5]}] (b) edge[bend left = 15] node[in place] {$X0/0$} (c);
+                \draw[-{Stealth[scale=1.5]}] (b) edge[bend left = 15] node[in place] {$X1/0$} (a);
+                \draw[-{Stealth[scale=1.5]}] (c) edge[loop below] node[in place] {$1X/1$} (c);
+                \draw[-{Stealth[scale=1.5]}] (c) edge[loop right] node[in place] {$00/0$} (c);
+                \draw[-{Stealth[scale=1.5]}] (c) edge[bend left = 15] node[in place] {$01/1$} (b);
+            \end{tikzpicture}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+\subsection{FSM to Circuits}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item High-level approach to go from problem to circuit
+        \begin{enumerate}
+            \item FSM
+            \item Truth table in terms of just current state bits and next state bits
+            \item Add columns for flip-flops to go from state bit $A(t)$ to next state bit $A(t+1)$
+            \item Derive K-maps for each output (overall output and flip-flop inputs)
+            \item Boolean expression
+            \item Circuit
+        \end{enumerate}
+        \item Choice of flip-flop
+        \begin{itemize}
+            \item D flip-flops results in fewer outputs/K-maps
+            \item JK flip-flops results in simpler expressions
+            \item You will be told which flip-flop to use
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
 \end{document}

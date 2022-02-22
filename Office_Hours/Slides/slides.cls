@@ -52,7 +52,7 @@
 \tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
 \usetikzlibrary{positioning,shapes.gates.logic.US}
 \usetikzlibrary{circuits.logic.US}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{circuits}
 \usetikzlibrary{automata, chains}
 \usetikzlibrary{calc}
