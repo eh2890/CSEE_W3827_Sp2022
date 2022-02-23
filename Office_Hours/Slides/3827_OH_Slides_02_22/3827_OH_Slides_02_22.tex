@@ -32,7 +32,7 @@
     \begin{itemize}
         \item Common errors from Homework 2:
         \begin{itemize}
-            \item Neither $AB + \overbar{A}\overbar{B}$ nor $A\overbar{B} + \overbar{A}B$ are equal to $0$ (XNOR and XOR respectively)
+            \item Neither $AB + \overbar{A}\overbar{B}$ nor $A\overbar{B} + \overbar{A}B$ are equal to a constant $0$ or $1$ (XNOR and XOR respectively)
             \item SoP and PoS forms must be logically equivalent -- PoS is not the negation of SoP form, but can be found by negating twice
             \item Don't cares do not have to be included when choosing prime implicants (hence their name)
         \end{itemize}
@@ -45,7 +45,7 @@
         \item Common errors from Homework 2 (cont.):
         \begin{itemize}
             \item Filling in K-maps:
-            \begin{karnaugh-map}[4][4][1][$AB$][$CD$]
+            \begin{karnaugh-map}[4][4][1][$CD$][$AB$]
                 \manualterms{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
             \end{karnaugh-map}
         \end{itemize}
@@ -269,7 +269,7 @@
 \subsection{State Machines}
 \begin{frame}{\secname: \subsecname}
     \begin{itemize}
-        \item We will worry about Mealy form -- output is based on transition and state, rather than just state
+        \item We will worry about Mealy form -- output is based on input and state, rather than just state
         \item Let the inputs be $I = I_{n-1}I_{n-2}\cdots I_1I_0$ and the outputs be $O = O_{m-1}O_{m-2}\cdots O_1O_0$
         \item Then, for every state in the FSM, there must be $2^{|I|}$ transitions accounted for, each corresponding to $I_{n-1}I_{n-2}\cdots I_1I_0 / O_{m-1}O_{m-2}\cdots O_1O_0$ (but replace with $0$s and $1$s, so something like $01\cdots 00 / 11\cdots 10$)
         \begin{itemize}
