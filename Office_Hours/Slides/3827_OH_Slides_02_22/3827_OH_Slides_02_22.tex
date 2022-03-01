@@ -271,9 +271,9 @@
     \begin{itemize}
         \item We will worry about Mealy form -- output is based on input and state, rather than just state
         \item Let the inputs be $I = I_{n-1}I_{n-2}\cdots I_1I_0$ and the outputs be $O = O_{m-1}O_{m-2}\cdots O_1O_0$
-        \item Then, for every state in the FSM, there must be $2^{|I|}$ transitions accounted for, each corresponding to $I_{n-1}I_{n-2}\cdots I_1I_0 / O_{m-1}O_{m-2}\cdots O_1O_0$ (but replace with $0$s and $1$s, so something like $01\cdots 00 / 11\cdots 10$)
+        \item Then, for every state in the FSM, there must be $2^{n}$ transitions accounted for, each corresponding to $I_{n-1}I_{n-2}\cdots I_1I_0 / O_{m-1}O_{m-2}\cdots O_1O_0$ (but replace with $0$s and $1$s, so something like $01\cdots 00 / 11\cdots 10$)
         \begin{itemize}
-            \item Why $2^{|I|}$? Because every combination of inputs must appear exactly once for each state since we will deal with deterministic FSMs
+            \item Why $2^{n}$? Because every combination of inputs must appear exactly once for each state since we will deal with deterministic FSMs
         \end{itemize}
     \end{itemize}
 \end{frame}
