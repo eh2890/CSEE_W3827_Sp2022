@@ -1,0 +1,211 @@
+\documentclass{../slides}
+
+\title{3827 OH}
+\author{Eumin Hong (eh2890)}
+\institute{Columbia University}
+\date{March 1, 2022}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Announcements}
+\subsection{Upcoming Exams and Homework}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Midterm is March 10 or 11 (depends on section/form you filled out at the beginning of the semester)
+        \item HW3 graded, will have HW4 graded ideally over the weekend (after all submissions received)
+    \end{itemize}
+\end{frame}
+
+\subsection{Homework 3 Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Common errors from Homework 3:
+        \begin{itemize}
+            \item Be sure to label the inputs/outputs of your decoders, MUXes, and similar circuitry (better safe than sorry)
+            \item Use \enquote{don't cares} in Q3 -- whenever you have various possible inputs combinations for the same output, think about using \enquote{don't cares} (i.e. $10$ and $11$ both result in red lamp color)
+            \item For questions like Q4/Q5, try creating some additional example strings
+            \begin{itemize}
+                \item Exam will not provide examples of all edge cases (but the behavior will be well-defined)
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Form: \url{https://forms.gle/cnUmKVNYN7WvRbHA6}
+    \end{itemize}
+\end{frame}
+
+\section{Midterm Review}
+\subsection{Overview}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item The following slides list out the topics and techniques for notable homework questions and all exam questions
+        \begin{itemize}
+            \item Not going to talk about Warmup Problems -- those are pretty straightforward and covered in other problems
+        \end{itemize}
+        \item You should know how to solve all of the HW problems and exam problems
+        \item All references to lectures and slides are based on the GitHub repository (updated as of March 1)
+    \end{itemize}
+\end{frame}
+
+\subsection{Homework 1}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item All conversions to and from binary should be second nature
+        \item Q3: should know how to correctly detect overflow for both binary and 2's-complement addition algorithms (Lecture 01, Slides 67-68)
+        \begin{itemize}
+            \item % TODO: add relevant exam question about 1's complement
+        \end{itemize}
+        \item Q5: should know how to compare numbers (in all forms of binary, but the structure of floating point numbers makes it easy to compare) (Lecture 01, Slide 79)
+    \end{itemize}
+\end{frame}
+
+\subsection{Homework 2}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1/Q2: should be able to simplify to minimize literals (Lecture 02, Slides 16-30)
+        \begin{itemize}
+            \item Should also be second nature (except detecting XORs/XNORs, which take more time)
+            \item If stuck, try using K-maps % TODO: insert lecture ref
+        \end{itemize}
+        \item Q3/Q4/Q5: De Morgan's Law (Lecture 02, Slides 22-29)
+        \item Q6/Q7/Q8: Boolean expressions/minterms to K-maps to Boolean expressions (Lecture 03, Slides 32-67)
+        \begin{itemize}
+            \item \enquote{Don't cares} (Lecture 03, Slides 71-81)
+            \item Filling out a K-map should take no longer than $30$ seconds (rough estimate)
+            \item Practice -- use friends or online resources to check your work
+            \begin{itemize}
+                \item Online K-map resource: \url{http://www.32x8.com/index.html}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Homework 3}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1: using smaller combinational circuitry to build larger combinational circuitry (Lecture 04, Slides 52-97)
+        \item Q2: meaning of minterms (Lecture 03, Slides 16-18)
+        \item Q3/Q4/Q5: word problem to truth table/K-map to Boolean expressions (Lecture 04, Slides 98-104)
+        \begin{itemize}
+            \item Verify that you know what your inputs and outputs are (e.g. inputs are $ABCD$, outputs are $NSH, NSL, EWH, EWL$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Homework 4}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q2/Q3: word problem to truth table/K-map to Boolean expressions for FSMs (Lecture 06, Slides 24-42 and 43-71)
+    \end{itemize}
+\end{frame}
+
+\subsection{Spring 18 Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1: word problem to truth table/K-map to Boolean expressions (Lecture 04, Slides 98-104)
+        \begin{itemize}
+            \item If input is \enquote{unused}, think \enquote{don't care}
+        \end{itemize}
+        \item Q2: unsigned binary comparison
+        \begin{itemize}
+            \item Q2b: using pre-defined circuits to implement more complex circuit (means that this is independent of implementation in Q2a for base case)
+            \item Q2c: MUXes to handle casework
+            \item Q2d: 2's complement binary comparison
+            \item Q2e: similar to ripple carry adder (Lecture 04, Slides 115-117)
+        \end{itemize}
+        \item Q3: not relevant
+    \end{itemize}
+\end{frame}
+
+\subsection{Fall 18 Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1:
+        \begin{itemize}
+            \item Q1a: binary addition (Lecture 01, Slides 10-21)
+            \item Q1b: MUXes to handle casework
+        \end{itemize}
+        \item Q2: 1's and 2's complement
+        \begin{itemize}
+            \item Q2a: conversion from binary to 1's complement and binary to 2's complement (Lecture 01, Slides 37-46)
+            \item Q2b: $k$-bit addition and reusing inputs (Lecture 04, Slides 105-114)
+            \item Q2c: MUXes to handle casework
+        \end{itemize}
+        \item Q3: word problem to truth table/K-map to Boolean expressions (Lecture 04, Slides 98-104)
+    \end{itemize}
+\end{frame}
+
+\subsection{Spring 19 Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1:
+        \begin{itemize}
+            \item Q1a: unsigned binary overflow (for addition, not subtraction: Lecture 01, Slides 29-36)
+            \item Q1b: detecting overflow (Lecture 01, Slides 67-68)
+            \item Q1c: unsigned binary subtraction overflow
+            \item Q1d: MUXes to handle casework
+            \item Q1e: \enquote{A Slick MUX trick} (Lecture 04, Slides 78-82)
+        \end{itemize}
+        \item Q2: identifying behavior of latch given inputs (Lecture 05, Slides 12-17, 18-24, and 25-27)
+        \item Q3: word problem to truth table/K-map to Boolean expressions for FSMs (Lecture 06, Slides 24-42 and 43-71)
+        \begin{itemize}
+            \item Q3a: determining FSM (Lecture 06, Slides 24-32 and 44-50)
+            \item Q3b: filling in truth table for given flip-flop and getting Boolean expression (Lecture 06, Slides 33-35, 36-37, 38-42, and 56-71)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Spring 21 Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Q1: full adder (Lecture 04, Slides 105-114)
+        \begin{itemize}
+            \item Q1a: contraction (Lecture 04, Slides 127-134)
+            \item Q1b: MUXes to handle casework
+        \end{itemize}
+        \item Q2:
+        \begin{itemize}
+            \item Q2a: conversion from binary to 1’s complement and binary to 2’s complement (Lecture 01, Slides 37-46)
+            \item Q2b: Range of representation of binary numbers (Lecture 01, Slides 58) and 2's complement overflow (Lecture 01, Slide 68)
+        \end{itemize}
+        \item Q3:
+        \begin{itemize}
+            \item Q3a: determining FSM (Lecture 06, Slides 24-32 and 44-50)
+            \item Q3b: filling in truth table for given flip-flop and getting Boolean expression (Lecture 06, Slides 33-35, 36-37, 38-42, and 56-71)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\subsection{Other Important Topics and References}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Bitwise Operations (Lecture 02, Slides 39-42)
+        \item XOR Gates (Lecture 02, Slides 9-10 and 54-55)
+        \item NAND and NOR Gates (Lecture 02, Slides 43-45)
+        \item SoP and PoS (Lecture 03, Slides 4-9)
+        \item Minterms and Maxterms (Lecture 03, Slides 10-28)
+        \item Implicant Terminology (Lecture 03, Slide 57)
+        \item \enquote{Standard Circuits} (Lecture 04, Slides 35-51)
+        \item Adder Circuits (Lecture 04, Slides 105-114 and 115-126)
+        \item Contraction (Lecture 04, Slides 127-134)
+        \item Latches (Lecture 05, Slides 4-52)
+        \item Flip Flops (Lecture 05, Slides 53-83)
+        \item Finite State Machines (Lecture 06, Slides 18-71)
+    \end{itemize}
+\end{frame}
+
+\end{document}
