@@ -1,0 +1,122 @@
+\documentclass{../slides}
+
+\title{3827 OH}
+\author{Eumin Hong (eh2890)}
+\institute{Columbia University}
+\date{March 29, 2022}
+
+\usepackage{mips}
+% MIPS lstlistings
+\lstdefinestyle{MIPS}{frame=tb,
+  language=[mips]Assembler,
+  basicstyle=\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  rulecolor=\color{black},
+  tabsize=4,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  title=\lstname,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  escapeinside={\%*}{*)},
+  morekeywords={*,...}
+}
+
+\lstset{style=mips}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Announcements}
+\subsection{Upcoming Exams and Homework}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item HW5 due 4/1 (Ed post \#252)
+        \item HW6 due 4/4 (Ed post \#256)
+    \end{itemize}
+\end{frame}
+
+\subsection{Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Do not throw away your exam if you plan to request a regrade
+        \item Form: \url{https://forms.gle/8S8WYGD2B8LSsRmt9}
+        \item I cannot comment on how a certain question was scored since I may not have scored it
+        \item I do not know how the different exams are relatively curved
+    \end{itemize}
+\end{frame}
+
+\subsection{Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Form: \url{https://forms.gle/cnUmKVNYN7WvRbHA6}
+    \end{itemize}
+\end{frame}
+
+\section{Homework 5 Material}
+\subsection{Overview and Relevant Lectures}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item All Part $n$ references are for Part $2.n$ in the \enquote{Coding Details} part of HW5 (i.e. the programming parts)
+        \item Introduction to MIPS programming (Lecture 07, Slides 35-81)
+        \item Conditional logic in MIPS (Lecture 07, Slides 82-95)
+        \item Stack pointer and recursion (Lecture 07, Slides 96-111)
+        \item MIPS calling conventions (Lecture 07, Slides 112-166)
+        \item For Part 3 (\lstinline{AddAndVerify}), use new testing program \lstinline{test-AddAndVerify-plus.s} on CourseWorks
+        \begin{itemize}
+            \item The original does not print any decrypted string even if you are correct
+            \item Also original says \enquote{ALL DONE} even if you are wrong
+            \item It is fairly clear when the new testing code outputs correct string
+        \end{itemize}
+        \item For the main message (Part 4), the last four characters can be ignored
+    \end{itemize}
+\end{frame}
+
+\subsection{General Part 3 Structure}
+\begin{frame}[fragile]{\secname: \subsecname}
+    \begin{lstlisting}
+    AddAndVerify:
+        # Base case checking/branching
+        # If not base case, push to stack using `sw`
+        # Other necessary operations
+        jal AddAndVerify
+        # Pop from stack
+        # Check $v0 to see if suffix is valid for branching
+        # Other necessary operations
+        jal WordDecrypt
+        # Other necessary operations
+        jal IsCandidate
+        # Other necessary operations such as writing to destination address
+        jr $ra
+    \end{lstlisting}
+    \begin{itemize}
+        \item This is just a rough outline -- you must fill in the rest of the code
+    \end{itemize}
+\end{frame}
+
+\section{Homework 6 Material}
+\subsection{Relevant Lectures}
+\begin{itemize}
+    \item Coincident selection (Lecture 10, Slides 41-58)
+    \item Scaling memory using multiple chips (Lecture 10, Slides 59-85)
+\end{itemize}
+
+\end{document}
