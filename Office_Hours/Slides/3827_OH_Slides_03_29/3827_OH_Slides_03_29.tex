@@ -96,14 +96,17 @@
     AddAndVerify:
         # Base case checking/branching
         # If not base case, push to stack using `sw`
+        # Also save the decrypted word to the stack
         # Other necessary operations
         jal AddAndVerify
-        # Pop from stack
+        # Pop from stack (only what you need)
         # Check $v0 to see if suffix is valid for branching
         # Other necessary operations
         jal WordDecrypt
         # Other necessary operations
         jal IsCandidate
+        # Pop from stack stuff such as `$ra` since WordDecrypt/IsCandidate overwrite it
+        # Write to the DecryptStringSpace if valid word
         # Other necessary operations such as writing to destination address
         jr $ra
     \end{lstlisting}
@@ -114,9 +117,11 @@
 
 \section{Homework 6 Material}
 \subsection{Relevant Lectures}
-\begin{itemize}
-    \item Coincident selection (Lecture 10, Slides 41-58)
-    \item Scaling memory using multiple chips (Lecture 10, Slides 59-85)
-\end{itemize}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Coincident selection (Lecture 10, Slides 41-58)
+        \item Scaling memory using multiple chips (Lecture 10, Slides 59-85)
+    \end{itemize}
+\end{frame}
 
 \end{document}
