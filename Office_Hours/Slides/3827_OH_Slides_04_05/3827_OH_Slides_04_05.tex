@@ -1,0 +1,86 @@
+\documentclass{../slides}
+
+\title{3827 OH}
+\author{Eumin Hong (eh2890)}
+\institute{Columbia University}
+\date{April 5, 2022}
+
+\usepackage{mips}
+% MIPS lstlistings
+\lstdefinestyle{MIPS}{frame=tb,
+  language=[mips]Assembler,
+  basicstyle=\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  rulecolor=\color{black},
+  tabsize=4,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  title=\lstname,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  escapeinside={\%*}{*)},
+  morekeywords={*,...}
+}
+
+\lstset{style=mips}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Announcements}
+\subsection{Upcoming Exams and Homework}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item HW7 due 4/8
+    \end{itemize}
+\end{frame}
+
+\subsection{Midterm}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item If you did not get a chance to pick up your midterm, send me an email with the title \enquote{[3827-oh] Midterm Pickup Request} by \textbf{April 12}
+        \begin{itemize}
+            \item If I do not get your email by then, I will assume that you are not picking it up (which is totally fine)
+        \end{itemize}
+        \item Include your section that you are enrolled for (not the section you took the midterm)
+    \end{itemize}
+\end{frame}
+
+\subsection{Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Form: \url{https://forms.gle/cnUmKVNYN7WvRbHA6}
+    \end{itemize}
+\end{frame}
+
+\section{Homework 7 Material}
+\subsection{Overview and Relevant Lectures}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Instruction formats (Lecture 08, Slides 9-31)
+        \item Single cycle processor diagram (Lecture 11, Slide 14)
+        \item Examples of instructions in single-cycle processors (Lecture 11)
+        \item For Problem 4, edit the single-cycle processor found here: \url{https://github.com/eh2890/CSEE_W3827_S2022/blob/main/Homework/single-cycle.pdf}
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
