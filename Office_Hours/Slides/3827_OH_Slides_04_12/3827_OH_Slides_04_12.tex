@@ -1,0 +1,88 @@
+\documentclass{../slides}
+
+\title{3827 OH}
+\author{Eumin Hong (eh2890)}
+\institute{Columbia University}
+\date{April 12, 2022}
+
+\usepackage{mips}
+% MIPS lstlistings
+\lstdefinestyle{MIPS}{frame=tb,
+  language=[mips]Assembler,
+  basicstyle=\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  rulecolor=\color{black},
+  tabsize=4,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  title=\lstname,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  escapeinside={\%*}{*)},
+  morekeywords={*,...}
+}
+
+\lstset{style=mips}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Announcements}
+\subsection{Upcoming Exams and Homework}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item HW8 due 4/15
+    \end{itemize}
+\end{frame}
+
+\subsection{Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Form: \url{https://forms.gle/cnUmKVNYN7WvRbHA6}
+    \end{itemize}
+\end{frame}
+
+\section{Homework 8 Material}
+\subsection{Overview and Relevant Lectures}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Five stages of MIPS pipeline, but without pipeline registers (Lecture 12, Slide 17)
+        \item Pipelined CPU with controls (Lecture 12, Slide 58)
+        \item Examples of instructions in pipeline (Lecture 12, Slides 32-53)
+        \item Dependencies (Lecture 12, Slides 59-67)
+        \item Hazards (Lecture 12, Slides 68-81)
+        \item Avoiding Hazards with NOP (Lecture 12, Slides 82-87)
+        \item Write-before-Read Reg File (Lecture 12, Slides 88-100)
+        \item Data Hazard Handling (Lecture 12, Slides 108-171)
+        \begin{itemize}
+            \item Data Forwarding (Lecture 12, Slides 132-171)
+        \end{itemize}
+        \item Branching Hazard Resolution (Lecture 12, Slides 188-199)
+        \item Move Conditional Check Forward, or Early Branch Resolution (Lecture 12, Slides 200-220)
+        \begin{itemize}
+            \item Example for early branch resolution (Lecture 12, Slides 241-249)
+        \end{itemize}
+        \item Hazard Resolution Examples (Lecture 12, Slides 221-249)
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
