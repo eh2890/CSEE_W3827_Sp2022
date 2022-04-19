@@ -1,0 +1,106 @@
+\documentclass{../slides}
+
+\title{3827 OH}
+\author{Eumin Hong (eh2890)}
+\institute{Columbia University}
+\date{April 19, 2022}
+
+\usepackage{mips}
+% MIPS lstlistings
+\lstdefinestyle{MIPS}{frame=tb,
+  language=[mips]Assembler,
+  basicstyle=\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  rulecolor=\color{black},
+  tabsize=4,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  title=\lstname,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  escapeinside={\%*}{*)},
+  morekeywords={*,...}
+}
+
+\lstset{style=mips}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\end{frame}
+
+\section{Announcements}
+\subsection{Upcoming Exams and Homework}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item HW9 due 4/22
+        \item Sec 3 final exam 5/6 (tentative)
+        \item Sec 1/2 final exam 5/12 (tentative)
+    \end{itemize}
+\end{frame}
+
+\subsection{Feedback}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Form: \url{https://forms.gle/cnUmKVNYN7WvRbHA6}
+    \end{itemize}
+\end{frame}
+
+\section{Homework 9 Material}
+\subsection{Overview and Relevant Lectures}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item Cache locality (Lecture 13, Slides 19-22)
+        \item Blocks (Lecture 13, Slides 23-31)
+        \item Reading from Cache (Lecture 13, Slides 32-35)
+        \item Direct Mapping (Lecture 13, Slides 36-66)
+        \item Direct Mapping MIPS (Lecture 13, Slides 67-72)
+        \item Associative Mapping (Lecture 13, Slides 73-89)
+        \item Writing to Memory (Lecture 13, Slides 90-93)
+    \end{itemize}
+\end{frame}
+
+\subsection{Notes}
+\begin{frame}{\secname: \subsecname}
+    \begin{itemize}
+        \item For Q1 and Q2:
+        \begin{figure}[H]
+            \centering
+            \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}\hline
+                Addr & 0 & 1 & 2 & 3 & $\cdots$ & 13 & 14 & 15 & Hit/Miss \\\hline
+                5 &&&&&&&&\\\hline
+                7 &&&&&&&&\\\hline
+                13 &&&&&&&&\\\hline
+                15 &&&&&&&&\\\hline
+                5 &&&&&&&&\\\hline
+                19 &&&&&&&&\\\hline
+                21 &&&&&&&&\\\hline
+                5 &&&&&&&&\\\hline
+                7 &&&&&&&&\\\hline
+                13 &&&&&&&&\\\hline
+                22 &&&&&&&&\\\hline
+                5 &&&&&&&&\\\hline
+                23 &&&&&&&&
+            \end{tabular}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
